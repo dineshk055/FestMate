@@ -1,7 +1,7 @@
 import express from 'express';
 import { register,login } from '../controllers/datascontroller.js';
 import { festivalRegister,getEventDetails } from '../controllers/festivalControlle.js';
-import { helperDetails, helperRegister } from '../controllers/helperController.js';
+import { getHelperByLocation, helperDetails, helperRegister } from '../controllers/helperController.js';
 
 const routes=express.Router();
 
@@ -17,6 +17,8 @@ routes.get("/getEventDetails",getEventDetails)    // http://localhost:3000/api/a
 routes.post("/helperRegister",helperRegister)     // http://localhost:3000/api/auth/helperRegister
 
 routes.get("/helperDetails",helperDetails)     // http://localhost:3000/api/auth/helperDetails
+
+routes.get("/getHelperByLOcation",getHelperByLocation)     // http://localhost:3000/api/auth/getHelperByLocation
 
 
 

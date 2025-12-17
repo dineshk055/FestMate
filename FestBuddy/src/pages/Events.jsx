@@ -18,6 +18,8 @@ const EventsList = () => {
         eventType: "other"
     });
     const [events, setEvents] = useState([]);
+    const [helpersCount,setHelpersCount]=useState(0);
+    const [helpers,setHelpers]=useState("");
     const[msg,setMsg]=useState("");
     const{user}=useContext(UserContext);
 
@@ -70,6 +72,21 @@ const EventsList = () => {
             const eventDatas = await axios.post("http://localhost:3000/api/auth/eventDetails", newEvent)
             toast.success(eventDatas.data.msg)
             setMsg(eventDatas.data.msg)
+
+            //for fetch helper detas by location
+
+            const locationHelpers = await axios.get("http://localhost:3000/api/auth/getHelperByLocation",
+                {
+                    params: {location}
+                }
+            );
+
+             console.log(locationHelpers);
+             
+
+            setHelpersCount(locationHelpers.data.count);
+            setHelpers(locationHelpers.data.helpers)
+            
 
         } catch (error) {
             // Handle error
@@ -142,6 +159,9 @@ const EventsList = () => {
                                     <h3 className="text-xl font-bold text-gray-900 truncate">{event.eventName}</h3>
                                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getEventTypeColor(event.eventType)}`}>
                                         {event.eventType}
+                                    </span>
+                                    <span>
+                                        {helpersCount}
                                     </span>
                                 </div>
                                 

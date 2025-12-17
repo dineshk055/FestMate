@@ -12,7 +12,7 @@ export const festivalRegister =async(req,res)=>{
         
     } catch (error) {
 
-        console.log("Error in festDetailsregister",error)
+        console.log("Error in fest Details register",error)
         
     }
 
