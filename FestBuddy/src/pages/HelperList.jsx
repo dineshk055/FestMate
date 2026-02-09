@@ -50,7 +50,7 @@ const HelperList = () => {
   const fetchHelperDatas = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3000/api/auth/helperDetails");
+      const response = await axios.get("https://festmate-d1xu.onrender.com/api/auth/helperDetails");
       setHelpers(response.data.getHelper || []);
       setFilteredHelpers(response.data.getHelper || []);
     } catch (error) {
@@ -185,7 +185,7 @@ const HelperList = () => {
     setSubmitting(true);
     
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/helperRegister", newHelper);
+      const response = await axios.post("https://festmate-d1xu.onrender.com/api/auth/helperRegister", newHelper);
       toast.success(response.data.msg);
       setMsg(response.data.msg);
       

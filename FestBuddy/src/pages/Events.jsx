@@ -50,7 +50,7 @@ const EventsList = () => {
     const fetchEvents = async () => {
         try {
             setLoading(true);
-            const response = await axios.get("http://localhost:3000/api/auth/getEventDetails");
+            const response = await axios.get("https://festmate-d1xu.onrender.com/api/auth/getEventDetails");
             setEvents(response.data.getEvent);
             setFilteredEvents(response.data.getEvent);
         } catch (error) {
@@ -130,7 +130,7 @@ const EventsList = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/api/auth/eventDetails", newEvent);
+            const response = await axios.post("https://festmate-d1xu.onrender.com/api/auth/eventDetails", newEvent);
             toast.success(response.data.msg || "Event created successfully!");
             setMsg(response.data.msg);
             resetForm();

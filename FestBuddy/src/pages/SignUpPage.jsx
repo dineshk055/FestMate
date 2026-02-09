@@ -28,7 +28,7 @@ const SignUpPage = () => {
         e.preventDefault();
 
         try {
-            const storedatas = await axios.post("http://localhost:3000/api/auth/register", formData);
+            const storedatas = await axios.post("https://festmate-d1xu.onrender.com/api/auth/register", formData);
             console.log(storedatas);
             toast.success(storedatas.data.msg);
             navigate("/SignIn");

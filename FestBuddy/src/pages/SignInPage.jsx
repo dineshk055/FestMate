@@ -26,7 +26,7 @@ const SignInPage = () => {
     e.preventDefault();
 
     try {
-      const signindata = await axios.post("http://localhost:3000/api/auth/signin", formData);
+      const signindata = await axios.post("https://festmate-d1xu.onrender.com/api/auth/signin", formData);
       toast.success('Welcome Back !' + " " + signindata.data.datas.fullName);
       setUser(signindata.data.datas.fullName);
       console.log(signindata);
